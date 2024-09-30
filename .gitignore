@@ -1,0 +1,11 @@
+target/
+
+### IntelliJ IDEA ###
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
