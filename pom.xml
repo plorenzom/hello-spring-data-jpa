@@ -15,6 +15,8 @@
         <h2.version>2.3.232</h2.version>
         <hibernate-platform.version>7.4.5.Final</hibernate-platform.version>
         <logback-classic.version>1.5.32</logback-classic.version>
+        <lombok.version>1.18.46</lombok.version>
+        <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
         <spring-data-bom.version>2026.0.0</spring-data-bom.version>
     </properties>
 
@@ -55,8 +57,33 @@
             <artifactId>hibernate-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
