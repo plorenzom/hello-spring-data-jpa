@@ -11,4 +11,11 @@ import java.util.UUID;
  */
 @Repository
 public interface TeamRepository extends JpaRepository<TeamEntity, UUID> {
+
+    /**
+     *
+     * @param teamId
+     * @return Número de registros eliminados (0 o 1).
+     */
+    int deleteByTeamId(UUID teamId);
 }
