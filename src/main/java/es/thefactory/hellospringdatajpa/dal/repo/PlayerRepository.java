@@ -11,4 +11,11 @@ import java.util.UUID;
  */
 @Repository
 public interface PlayerRepository extends JpaRepository<PlayerEntity, UUID> {
+
+    /**
+     *
+     * @param playerId
+     * @return Número de registros eliminados (0 o 1).
+     */
+    int deleteByPlayerId(UUID playerId);
 }
