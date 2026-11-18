@@ -12,6 +12,8 @@
         </encoder>
     </appender>
 
+    <logger name="org.hibernate.HQL_FUNCTIONS" level="INFO"/>
+
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </root>
