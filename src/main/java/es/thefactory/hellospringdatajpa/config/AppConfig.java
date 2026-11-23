@@ -33,10 +33,18 @@ public class AppConfig {
 
     /**
      *
+     */
+    private final String schemaLocation;
+
+    /**
+     *
      * @param packagesToScan
      */
-    public AppConfig(@Value("${jpa.entity.packages-to-scan}") String[] packagesToScan) {
+    public AppConfig(
+        @Value("${jpa.entity.packages-to-scan}") String[] packagesToScan,
+        @Value("${jpa.datasource.schema-location}") String schemaLocation) {
         this.packagesToScan = packagesToScan;
+        this.schemaLocation = schemaLocation;
     }
 
     /**
@@ -47,6 +55,7 @@ public class AppConfig {
     public DataSource dataSource() {
         EmbeddedDatabaseBuilder embeddedDatabaseBuilder = new EmbeddedDatabaseBuilder();
         embeddedDatabaseBuilder.setType(EmbeddedDatabaseType.H2);
+        embeddedDatabaseBuilder.addScript(schemaLocation);
 
         return (embeddedDatabaseBuilder.build());
     }
